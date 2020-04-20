@@ -1,0 +1,52 @@
+swagger: "2.0"
+info:
+  description: Descripción de mi primera api
+  version: "1.0.0"
+  title: My fist Api
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /attributes:
+    get:
+      operationId: "TestService.list_people"
+      tags:
+        - "People"
+      summary: "Resumen de mi api"
+      description: "get a list of people"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/People"
+
+
+definitions:
+  Response:
+    type: "object"
+    properties:
+      status:
+        type: "integer"
+      message:
+        type: "string"
+  
+  People:
+    type: "object"
+    properties:
+      rut:
+        type: "string"
+      name:
+        type: "string"
+      lastName:
+        type: "string"
+      age:
+        type: "integer"
+      course:
+        type: "string"

@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  rest:
+    container_name: rest
+    restart: always
+    build: .
+    env_file: .env
+    volumes:
+      - rest:/app
+    ports:
+      - "8000:8000"
+
+volumes: 
+  rest:
+    driver: local

@@ -3,7 +3,10 @@ RUN apk update \
     && apk add --update build-base git make \
     && pip install gunicorn \
     && pip install flask \
-    && pip install connexion[swagger-ui]
+    && pip install connexion[swagger-ui] \
+    && pip install flask-cors \
+    && pip install pymongo \
+    && pip install dnspython
 
 
 WORKDIR /app

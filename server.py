@@ -11,7 +11,13 @@ import json
 # Create the application instance
 connx_app = connexion.App(__name__, specification_dir='./')
 
-client = pymongo.MongoClient("mongodb+srv://people_user:xSyYV9Dbv269RYg@people-xq6tp.gcp.mongodb.net/people?retryWrites=true&w=majority")
+#url atlas
+#mongodb+srv://people_user:xSyYV9Dbv269RYg@people-xq6tp.gcp.mongodb.net/people?retryWrites=true&w=majority
+
+#url_local
+mongo_uri = 'mongodb://' + os.environ['MONGODB_USERNAME'] + ':' + os.environ['MONGODB_PASSWORD'] + '@' + os.environ['MONGODB_HOSTNAME'] + ':27017/' + os.environ['MONGODB_DATABASE']
+# client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+client = pymongo.MongoClient(mongo_uri)
 db = client.people
 
 

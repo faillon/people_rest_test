@@ -6,7 +6,8 @@ RUN apk update \
     && pip install connexion[swagger-ui] \
     && pip install flask-cors \
     && pip install pymongo \
-    && pip install dnspython
+    && pip install dnspython \
+    && pip install pytest
 
 
 WORKDIR /app
